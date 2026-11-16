@@ -1,4 +1,3 @@
-
 const search = document.getElementById("search");
 
 search.addEventListener("keyup", function() {
