@@ -1,0 +1,1 @@
+pengerjaan dilakukan diskusi berkelompok. Namun, sesuai kesepakatan hanya Jay Melvin dan Christopher Andrw yang mengerjakan coding sedangkan Defni dan Efeni menjadi semacam pembaca dan pemberi saram pada saat ngoding
