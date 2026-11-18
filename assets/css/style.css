@@ -1,0 +1,504 @@
+/* =========================================
+   STUDENT PORTAL
+   MAIN STYLESHEET
+========================================= */
+
+
+/* =========================================
+   1. GLOBAL VARIABLES
+========================================= */
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #eff6ff;
+
+    --success: #16a34a;
+    --danger: #dc2626;
+    --warning: #f59e0b;
+
+    --dark: #1e293b;
+    --muted: #64748b;
+
+    --background: #f1f5f9;
+    --white: #ffffff;
+    --border: #e2e8f0;
+
+    --radius: 14px;
+    --shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+    --shadow-hover: 0 10px 25px rgba(15, 23, 42, 0.10);
+}
+
+
+/* =========================================
+   2. GLOBAL RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--background) !important;
+    background-image: none !important;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+hr {
+    border-color: var(--border);
+    opacity: 1;
+}
+
+
+/* =========================================
+   3. NAVBAR
+========================================= */
+
+.navbar {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.navbar .btn {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   4. PAGE TITLE
+========================================= */
+
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.page-subtitle {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   5. CARD
+========================================= */
+
+.card {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+.card-footer {
+    background-color: var(--white);
+    border-top: 1px solid var(--border);
+}
+
+
+/* =========================================
+   6. STATISTICS CARD
+========================================= */
+
+.stat-card {
+    height: 100%;
+    padding: 22px;
+    background-color: var(--white);
+    border: 1px solid #e8edf5;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: #bfdbfe;
+    box-shadow: var(--shadow-hover);
+}
+
+.stat-card h3 {
+    color: #1e40af;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 8px 0 0;
+}
+
+.stat-card p {
+    color: var(--muted);
+    font-weight: 600;
+    margin: 0;
+}
+
+
+/* =========================================
+   7. BUTTON
+========================================= */
+
+.btn {
+    border-radius: 9px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-success,
+.btn-danger,
+.btn-warning {
+    border: none;
+}
+
+.btn-outline-primary:hover {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   8. FORM
+========================================= */
+
+.form-control,
+.form-select {
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 10px 13px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-label {
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.input-group-text {
+    border-color: var(--border);
+    border-radius: 9px;
+}
+
+
+/* =========================================
+   9. TABLE
+========================================= */
+
+.table {
+    vertical-align: middle;
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom: none;
+    padding: 16px 14px;
+    white-space: nowrap;
+}
+
+.table tbody td {
+    padding: 14px;
+    border-color: var(--border);
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================
+   10. STUDENT TABLE
+========================================= */
+
+#dataMahasiswa {
+    min-width: 850px;
+}
+
+#dataMahasiswa tbody tr:hover {
+    background-color: #f1f7ff;
+}
+
+#dataMahasiswa .btn {
+    white-space: nowrap;
+}
+
+.table-responsive {
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   11. SEARCH
+========================================= */
+
+.search-box {
+    max-width: 350px;
+}
+
+.search-box input {
+    border-radius: 9px;
+}
+
+#search {
+    height: 43px;
+}
+
+
+/* =========================================
+   12. BADGE
+========================================= */
+
+.badge {
+    border-radius: 7px;
+    padding: 7px 10px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   13. ALERT
+========================================= */
+
+.alert {
+    border: none;
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   14. STUDENT PROFILE
+========================================= */
+
+.profile-label {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.profile-value {
+    color: var(--dark);
+    font-weight: 600;
+}
+
+
+/* =========================================
+   15. ACADEMIC SCORE
+========================================= */
+
+.score-card {
+    height: 100%;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.score-card .score-title {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.score-card .score-value {
+    color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   16. PROGRESS BAR
+========================================= */
+
+.progress {
+    background-color: #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+
+/* =========================================
+   17. LINK AND INTERACTIVE CARD
+========================================= */
+
+.card a {
+    transition: all 0.2s ease;
+}
+
+a .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* =========================================
+   18. LOGIN COMPONENTS
+   Desain utama login diatur pada
+   masing-masing file login.php.
+========================================= */
+
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.login-card {
+    width: 100%;
+    background-color: var(--white);
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(30, 64, 175, 0.12);
+}
+
+.login-card h2,
+.login-card h3 {
+    color: var(--dark);
+    font-weight: 700;
+}
+
+
+/* =========================================
+   19. RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 991px) {
+
+    .page-title {
+        font-size: 1.6rem;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+}
+
+
+/* =========================================
+   20. RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .card-body {
+        padding: 18px;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    .navbar .container {
+        gap: 10px;
+    }
+
+    .table {
+        font-size: 0.85rem;
+    }
+
+    #dataMahasiswa {
+        min-width: 850px;
+    }
+
+    .search-box {
+        max-width: 100%;
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   21. RESPONSIVE SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .stat-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .btn {
+        font-size: 0.875rem;
+    }
+
+}
