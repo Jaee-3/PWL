@@ -1,21 +1,63 @@
 
-const search = document.getElementById("search");
+document.addEventListener("DOMContentLoaded", function () {
 
-search.addEventListener("keyup", function() {
+    // 1. Pencarian data mahasiswa
+    const search = document.getElementById("search");
 
-    let keyword = search.value.toLowerCase();
+    if (search) {
+        search.addEventListener("keyup", function () {
 
-    let rows = document.querySelectorAll("#dataMahasiswa tr");
+            let keyword = search.value.toLowerCase();
 
-    rows.forEach(function(row) {
+            let rows = document.querySelectorAll(
+                "#dataMahasiswa tr"
+            );
 
-        let data = row.textContent.toLowerCase();
+            rows.forEach(function (row) {
+                let data = row.textContent.toLowerCase();
 
-        if (data.includes(keyword)) {
-            row.style.display = "";
-        } else {
-            row.style.display = "none";
+                row.style.display = data.includes(keyword)
+                    ? ""
+                    : "none";
+            });
+
+        });
+    }
+
+    // 2. Konfirmasi sebelum menghapus mahasiswa
+    document.addEventListener("click", function (event) {
+
+        const button = event.target.closest("[data-confirm]");
+
+        if (button) {
+            const message = button.dataset.confirm;
+
+            if (!confirm(message)) {
+                event.preventDefault();
+            }
         }
+
     });
+
+    // 3. Tampilkan atau sembunyikan password
+    document.addEventListener("click", function (event) {
+
+        const button = event.target.closest("[data-toggle-password]");
+
+        if (!button) return;
+
+        const input = document.querySelector(
+            button.dataset.togglePassword
+        );
+
+        if (input) {
+            input.type = input.type === "password"
+                ? "text"
+                : "password";
+        }
+
+    });
+
+    console.log("Student Portal JavaScript berhasil dimuat.");
 
 });
