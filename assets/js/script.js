@@ -1,47 +1,81 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    // 1. Pencarian data mahasiswa
+    // ==========================================
+    // 1. PENCARIAN DATA MAHASISWA
+    // ==========================================
+
     const search = document.getElementById("search");
+    const tableBody = document.getElementById("dataMahasiswa");
+    const noResult = document.getElementById("noResult");
 
-    if (search) {
-        search.addEventListener("keyup", function () {
+    if (search && tableBody) {
 
-            let keyword = search.value.toLowerCase();
+        search.addEventListener("input", function () {
 
-            let rows = document.querySelectorAll(
-                "#dataMahasiswa tr"
+            const keyword = search.value.toLowerCase().trim();
+
+            // Mengambil baris data, tidak termasuk baris pesan
+            const rows = tableBody.querySelectorAll(
+                "tr:not(#noResult):not(#emptyData)"
             );
 
-            rows.forEach(function (row) {
-                let data = row.textContent.toLowerCase();
+            let visibleCount = 0;
 
-                row.style.display = data.includes(keyword)
-                    ? ""
-                    : "none";
+            rows.forEach(function (row) {
+
+                const data = row.textContent.toLowerCase();
+                const isMatch = data.includes(keyword);
+
+                row.style.display = isMatch ? "" : "none";
+
+                if (isMatch) {
+                    visibleCount++;
+                }
+
             });
 
+            // Menampilkan pesan jika pencarian tidak menemukan data
+            if (noResult) {
+                noResult.style.display =
+                    rows.length > 0 && visibleCount === 0
+                        ? ""
+                        : "none";
+            }
+
         });
+
     }
 
-    // 2. Konfirmasi sebelum menghapus mahasiswa
+
+    // ==========================================
+    // 2. KONFIRMASI SEBELUM MENGHAPUS DATA
+    // ==========================================
+
     document.addEventListener("click", function (event) {
 
         const button = event.target.closest("[data-confirm]");
 
-        if (button) {
-            const message = button.dataset.confirm;
+        if (!button) return;
 
-            if (!confirm(message)) {
-                event.preventDefault();
-            }
+        const message = button.dataset.confirm;
+
+        if (!confirm(message)) {
+            event.preventDefault();
         }
 
     });
 
-    // 3. Tampilkan atau sembunyikan password
+
+    // ==========================================
+    // 3. TAMPIL / SEMBUNYIKAN PASSWORD
+    // ==========================================
+
     document.addEventListener("click", function (event) {
 
-        const button = event.target.closest("[data-toggle-password]");
+        const button = event.target.closest(
+            "[data-toggle-password]"
+        );
 
         if (!button) return;
 
@@ -50,13 +84,22 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         if (input) {
+
             input.type = input.type === "password"
                 ? "text"
                 : "password";
+
         }
 
     });
 
-    console.log("Student Portal JavaScript berhasil dimuat.");
+
+    // ==========================================
+    // 4. NOTIFIKASI JAVASCRIPT
+    // ==========================================
+
+    console.log(
+        "Student Portal JavaScript berhasil dimuat."
+    );
 
 });
